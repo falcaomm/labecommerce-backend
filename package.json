@@ -1,0 +1,23 @@
+{
+  "name": "labecommerce-backend",
+  "version": "1.0.0",
+  "description": "Projeto backend desenvolvido ao longo das semanas do curso",
+  "main": "index.js",
+  "type": "module",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/falcaomm/labecommerce-backend.git"
+  },
+  "keywords": [],
+  "author": "Manuela Falcão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/falcaomm/labecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/falcaomm/labecommerce-backend#readme"
+}
