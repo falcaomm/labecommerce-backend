@@ -25,14 +25,17 @@ app.get('/ping', (req: Request, res: Response) => {
     res.send('Pong!')
 })
 
+//getAllUsers
 app.get('/users', (req: Request, res: Response) => {
     res.status(200).send(users)
 })
 
+//getAllProducts
 app.get('/products', (req: Request, res: Response) => {
     res.status(200).send(products)
 })
 
+//searchProducts
 app.get('/products/search', (req: Request, res: Response) => {
     const findForName = req.query.name as string
 
@@ -43,6 +46,7 @@ app.get('/products/search', (req: Request, res: Response) => {
     res.status(200).send(resust)
 })
 
+//createUser
 app.post('/users', (req: Request, res: Response) => {
 
     const newUser: TUser= {
@@ -55,6 +59,7 @@ app.post('/users', (req: Request, res: Response) => {
     res.status(201).send('Cadastro realizado com sucesso')
 })
 
+//createProduct
 app.post('/products', (req: Request, res: Response) => {
 
     const newProduct: TProduct= {
@@ -68,6 +73,7 @@ app.post('/products', (req: Request, res: Response) => {
     res.status(201).send('Produto cadastrado com sucesso')
 })
 
+//createPurchase
 app.post('/purchase', (req: Request, res: Response) => {
 
     const newPurchase: TPurchase= {
@@ -81,8 +87,96 @@ app.post('/purchase', (req: Request, res: Response) => {
     res.status(201).send('Compra realizada com sucesso')
 })
 
-console.log(purchases);
+//getProductsById
+app.get('/products/:id', (req: Request, res: Response) => {
+    const { id } = req.params
+    
+    const result = products.filter((item) => {
+        return item.id === id
+    })
 
+    res.status(200).send(result)
+})
+
+//getPurchaseByUserId
+app.get('/users/:id/purchases', (req: Request, res: Response) => {
+    const { id } = req.params
+
+    const result = purchases.filter((item) => {
+        return item.userId === id
+    })
+
+    res.status(200).send(result)
+})
+
+//deleteUser
+app.delete("/users/:id", (req: Request, res: Response) => {
+    const { id } = req.params
+
+    const findIndexUsers = users.findIndex((item) => {
+        return item.id === id
+    })
+
+    findIndexUsers < 0 ?
+        res.status(404).send("Item não encontrado")
+        :
+        (users.splice(findIndexUsers, 1)
+        , res.status(200).send("User apagado com sucesso"))
+})
+
+app.delete("/products/:id", (req: Request, res: Response) => {
+    const { id } = req.params
+
+    const findIndexProducts = products.findIndex((item) => {
+        return item.id === id
+    })
+
+    findIndexProducts < 0 ?
+        res.status(404).send("Item não encontrado")
+        :
+        (products.splice(findIndexProducts, 1)
+        , res.status(200).send("Produto apagado com sucesso"))
+})
+
+app.put("/users/:id", (req: Request, res: Response) => {
+    const { id } = req.params
+
+    const {email, password} = req.body
+
+    const findUsers = users.find((item) => {
+        return item.id === id
+    })
+
+    if (findUsers) {
+        findUsers.id = findUsers.id
+        findUsers.email = email || findUsers.email
+        findUsers.password = password || findUsers.password
+        res.status(200).send("Cadastro atualizado com sucesso")
+    } else {
+        res.status(404).send("Item não encontrado")
+    }
+})
+
+app.put("/products/:id", (req: Request, res: Response) => {
+    const { id } = req.params
+
+    const {name , price, category  } = req.body
+
+    const findProducts= products.find((item) => {
+        return item.id === id
+    })
+
+    if (findProducts) {
+        findProducts.id = findProducts.id
+        findProducts.name = name || findProducts.name
+        findProducts.price = price || findProducts.price
+        findProducts.category = category || findProducts.category
+
+        res.status(200).send("Produto atualizado com sucesso")
+    } else {
+        res.status(404).send("Item não encontrado")
+    }
+})
 
 // createUser("u003", "beltrano@email.com", "beltrano99")
 
