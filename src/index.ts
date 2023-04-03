@@ -40,9 +40,9 @@ app.get('/products/search', (req: Request, res: Response) => {
             throw new Error("Busca não encontrada. Query params deve possuir pelo menos um caractere.");
         }
 
-        const result = products.find(item => item.name.toLowerCase().includes(query.toLowerCase()));
+        const result = products.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
 
-        if (!result) {
+        if (result.length === 0) {
             res.status(404)
             throw new Error("Produto não encontrado.");
         }
