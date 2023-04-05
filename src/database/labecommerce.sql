@@ -27,3 +27,60 @@ VALUES
 ("04", "Boné", 19.99, "Acessórios" ), 
 ("05", "Corrente", 10.30, "Acessórios" ),
 ("06", "Fone de ouvido", 143, "Eletrônicos" );
+
+-- Get All Users 
+SELECT * FROM users;
+
+-- Get All Products
+SELECT * FROM products;
+
+-- Search Product by name 
+SELECT * FROM products
+WHERE name like "%ca%";
+
+-- Create User 
+INSERT INTO users (id, email, password)
+VALUES ( "04", "user4@email.com", "user04");
+
+-- Create Product 
+INSERT INTO products (id, name, price, category)
+VALUES ("07", "Celular", 1599.99, "Eletrônicos");
+
+-- Get Products by id 
+SELECT * FROM products
+WHERE id = "07";
+
+-- Delete User by id 
+DELETE FROM users
+WHERE id = "04";
+
+-- Delete Product by id 
+DELETE FROM products 
+WHERE id = "07";
+
+-- Edit User by id 
+UPDATE users
+SET
+    email = "user4@outro-email.com",
+    password = "novouser04"
+WHERE id = "04";
+
+-- Edit Product by id 
+UPDATE products
+SET
+    price = 1499.99
+WHERE id = "07";
+
+-- Get All Users ordem crescente por email
+SELECT * FROM users
+ORDER BY email ASC;
+
+-- Get All Products 20 primeiros 
+SELECT * FROM products
+ORDER BY price ASC
+LIMIT 20;
+
+-- Get All Products intervalo de preço
+SELECT * FROM products
+WHERE price > 50 AND price < 300
+ORDER BY price ASC;
