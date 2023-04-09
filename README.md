@@ -19,15 +19,15 @@
 - API 
   - [x] Documentação Postman de todos os endpoints: <a href="https://documenter.getpostman.com/view/24823165/2s93RWPrGi#d1aae7f5-7a71-4a4f-baa7-0d2ceb8b8fe5">Clique aqui</a>;
   - Endpoints 
-    [x] Get all users;
-    [x] Get all products;
-    [x] Get products by id;
-    [x] Get purchase by id;
-    [x] Search products by name;
-    [x] Create user;
-    [x] Create product;
-    [x] Create purchase;
-    [x] Delete user by id;
-    [x] Delete product by id;
-    [x] Edit user by id;
-    [x] Edit product by id.
+  - [x] Get all users;
+  - [x] Get all products;
+  - [x] Get products by id;
+  - [x] Get purchase by id;
+  - [x] Search products by name;
+  - [x] Create user;
+  - [x] Create product;
+  - [x] Create purchase;
+  - [x] Delete user by id;
+  - [x] Delete product by id;
+  - [x] Edit user by id;
+  - [x] Edit product by id.
