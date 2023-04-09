@@ -5,7 +5,7 @@
 <img src="#" alt="GIF de demonstração do projeto">
 </div>
 
-> Esse projeto de introdução ao backend, com criação de uma API vinculada a um banco de dados real. Tem como objetivo funcionar como o **back-end de um E-Commerce**.
+> Projeto de introdução ao backend, com criação de uma API vinculada a um banco de dados. Tem como objetivo funcionar como o **back-end de um E-Commerce**.
 
 ## 💻 Tecnologias e Recursos Utilizados : 
 * NodeJS
