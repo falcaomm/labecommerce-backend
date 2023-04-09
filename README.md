@@ -17,8 +17,7 @@
 
 ## 📝Lista de Requisitos:
 - API 
-  - [x] Documentação Postman de todos os endpoints: <a href="https://documenter.getpostman.com/view/24823165/2s93RWPrGi#d1aae7f5-7a71-4a4f-baa7-0d2ceb8b8fe5">Clique aqui</a>;
-  - Endpoints 
+    - [x] Documentação Postman de todos os endpoints: <a href="https://documenter.getpostman.com/view/24823165/2s93RWPrGi#d1aae7f5-7a71-4a4f-baa7-0d2ceb8b8fe5">Clique aqui</a>;
     - [x] Get all users;
     - [x] Get all products;
     - [x] Get products by id;
