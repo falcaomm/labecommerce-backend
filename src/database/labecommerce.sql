@@ -2,23 +2,27 @@
 
 CREATE TABLE users (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
+    name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL, 
+    created_at TEXT
 );
 
 CREATE TABLE products (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
     name TEXT NOT NULL,
     price REAL NOT NULL,
+    description TEXT NOT NULL, 
+    image_url TEXT NOT NULL,
     category TEXT NOT NULL
 );
 
 CREATE TABLE purchases (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
-    total_price REAL NOT NULL,
-    paid INTEGER DEFAULT(0) NOT NULL,
-    delivery_at TEXT,
     buyer_id TEXT NOT NULL,
+    total_price REAL NOT NULL,
+    created_at TEXT,
+    paid INTEGER DEFAULT(0) NOT NULL,
     Foreign Key (buyer_id) REFERENCES users(id) 
     ON UPDATE CASCADE 
     ON DELETE CASCADE
@@ -101,7 +105,7 @@ WHERE id = "p007";
 
 -- Delete User by id 
 DELETE FROM users
-WHERE id = "u004";
+WHERE id = "u001";
 
 -- Delete Product by id 
 DELETE FROM products 

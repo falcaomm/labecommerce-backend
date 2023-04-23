@@ -5,22 +5,27 @@ export enum Category {
 }
 export type TUser = {
     id: string,
+    name: string,
     email: string,
     password: string,
+    createdAt: string
 }
 
 export type TProduct = {
     id: string,
     name: string,
     price: number,
+    description: string,
+    imageUrl: string,
     category: Category,
 }
 
 export type TPurchase = {
-    userId : string,
-    productId: string,
-    quantity: number,
+    id: string,
+    buyerId : string,
     totalPrice: number,
+    createdAt: string,
+    paid: number,
 }
 
 
