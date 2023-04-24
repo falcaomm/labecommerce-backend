@@ -29,6 +29,7 @@ CREATE TABLE purchases (
 );
 
 CREATE TABLE purchases_products (
+    id TEXT NOT NULL UNIQUE,
     purchase_id TEXT NOT NULL,
     product_id TEXT NOT NULL,
     quantity INTEGER NOT NULL,
