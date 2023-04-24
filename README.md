@@ -1,11 +1,6 @@
 # Projeto BackEnd - labecommerce
 
-<div align="center">
-<p><a href="#">Clique aqui</a> para abrir no navegador<p/>
-<img src="#" alt="GIF de demonstração do projeto">
-</div>
-
-> Projeto de introdução ao backend, com criação de uma API vinculada a um banco de dados. Tem como objetivo funcionar como o **back-end de um E-Commerce**.
+> Projeto de introdução ao desenvolvimento back-end, com a criação de uma API usando o servidor Express e o banco de dados SQLite3. Tem como objetivo funcionar como o **back-end de um E-Commerce**, permitindo a gestão de produtos, pedidos e usuários.
 
 ## 💻 Tecnologias e Recursos Utilizados : 
 * NodeJS
@@ -15,9 +10,27 @@
 * Knex
 * Postman
 
+## 🛠️ Instalação e Utilização: 
+
+```bash
+# Com o Node.js instalado clone o repositório do projeto
+git clone [URL do repositório]
+
+# Navegue até a pasta do projeto e instale as dependências
+cd [nome da pasta do projeto]
+npm install
+
+# Para iniciar o servidor, execute o script dev ou faça o build do projeto e execute o script start. 
+# O servidor estará disponível na porta padrão 3003.
+npm run dev || npm run build + npm run start
+```
+
+## 🔗 Documentação: 
+Postman: <a href="https://documenter.getpostman.com/view/24823165/2s93RWPrGi#d1aae7f5-7a71-4a4f-baa7-0d2ceb8b8fe5">Clique aqui</a>
+
 ## 📝Lista de Requisitos:
 - API 
-    - [x] Documentação Postman: <a href="https://documenter.getpostman.com/view/24823165/2s93RWPrGi#d1aae7f5-7a71-4a4f-baa7-0d2ceb8b8fe5">Clique aqui</a>;
+    - [x] Documentação;
     - [x] Get all users;
     - [x] Get all products;
     - [x] Get products by id;
