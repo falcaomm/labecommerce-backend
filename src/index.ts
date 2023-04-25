@@ -41,18 +41,16 @@ app.get('/purchases', async (req: Request, res: Response) => {
     try {
         const result = await db("purchases").select(
             "purchases.id AS purchaseId",
-            "purchases.total_price",
             "purchases.created_at As createdAt",
-            "purchases.paid As isPaid",
             "purchases.buyer_id AS buyerId",
         )
 
         const resultsWithIsPaid = [];
         for (const item of result) {
-            const isPaid = item.isPaid === 1;
+            const isPaid = item.paid === 1;
             const resultWithIsPaid = {
                 ...item,
-                isPaid: isPaid
+                paid: isPaid
             }
             resultsWithIsPaid.push(resultWithIsPaid);
         }
@@ -437,14 +435,7 @@ app.post('/purchase', async (req: Request, res: Response) => {
         if (purchase) {
             res.status(404);
             throw new Error("'id' já cadastrado.");
-        }
-        
-        // const correctTotalPrice = findForEqualProductsIds.price * newPurchase.quantity
-        
-        // if (newPurchase.totalPrice !== correctTotalPrice) {
-        //     res.status(422)
-        //     throw new Error(`O cálculo do 'totalPrice', considerando a 'quantity' descrita e o produto referido, está incorreto. O valor correto é: ${correctTotalPrice}.`);
-        // }        
+        }     
 
         await db('purchases').insert({
             id: newPurchase.id,
@@ -542,6 +533,9 @@ app.delete("/users/:id", async (req: Request, res: Response) => {
             throw new Error("Usuário não encontrado. Verifique o 'id'.")
         }
         
+        const purchases = await db("purchases").where({ buyer_id: idToDelete }).select("id")
+        const purchaseIds = purchases.map(purchase => purchase.id)
+        await db("purchases_products").del().whereIn("purchase_id", purchaseIds)
         await db("purchases").del().where({ buyer_id: idToDelete })
         await db("users").del().where({id: idToDelete })  
 
